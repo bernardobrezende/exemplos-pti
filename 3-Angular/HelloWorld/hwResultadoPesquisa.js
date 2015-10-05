@@ -6,14 +6,17 @@
 angular.module('helloWorld')
   .directive('hwResultadoPesquisa', function() {
     return {
+      scope: {
+        texto: '='
+      },
       // A = attribute
       // E = element
       // C = class
       restrict: 'CEA',
-      template: '<h1 class="bold">{{ nome }}, Aqui vão os resultados!</h1>',
+      template: '<h1 class="bold" ng-show="texto">{{ texto }}, Aqui vão os resultados!</h1>',
       link: function(scope, elem, attrs) {
         elem.on('click', function() {
-          console.log('clicou');
+          //elem.html(scope.texto);
         });
         console.log('scope: %o', scope);
         console.log('elem: %o', elem);
