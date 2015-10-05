@@ -1,12 +1,23 @@
-<html ng-app="">
+<html ng-app="starFoz">
   <head>
     <title>StarFoz</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="lib/angular/angular-csp.css">
   </head>
-  <body>
+  <body ng-cloak ng-controller="RootController">
+
+    <header>
+      <h2>Olá, bem vindo ao {{ ::appInfo.name }}</h2>
+    </header>
+
+    <footer>
+      <!-- v0.1 -->
+      v{{ ::appInfo.versionCode }} - {{ ::appInfo.versionName }}
+    </footer>
+
     <script type="text/javascript" src="lib/angular/angular.min.js"></script>
     <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="src/controllers/RootController.js"></script>
   </body>
 </html>
