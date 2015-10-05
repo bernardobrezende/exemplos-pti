@@ -7,40 +7,21 @@
   <body ng-controller="IndexController">
     <section ng-init=" boasVindas = 'Olá' " ng-cloak>
       <h2>{{::boasVindas}}, bem vindo ao {{ ::nomeApp }}</h2>
-      <input type="text" ng-model="nome">
-      <!--<h4>{{ nome }}</h4>-->
-      <h4 ng-bind="nome"></h4>
-      <h4>{{ ::nome }}</h4>
-
-      <a ng-hide="linkAngular" ng-href="{{::linkAngular}}" target="_blank">
-        <h3>Site AngularJS!</h3>
-      </a>
-
-      <input type="text" ng-model="busca" placeholder="Busca com resultados carregados" style="width: 200px"><br>
-      <!--<input type="text" ng-model="buscaServidor" placeholder="Busca no servidor" ng-model-options=" { updateOn: 'blur' } " style="width: 200px"><br>-->
-      <input type="text" ng-model="buscaServidor" placeholder="Busca no servidor" ng-model-options=" { updateOn: 'blur', debounce: 1000 } " style="width: 200px"><br>
-
-      <button ng-show="response.currentPage > 1" ng-click="paginaAnterior()">Anteriores</button>
-      <button ng-show="response.currentPage < response.pages" ng-click="proximaPagina()">Próximos</button>
-
-      <!--<h4 ng-if="response">Exibindo {{::response.results.length}} notícias entre {{::response.total | number}} totais</h4>-->
-      <h4 data:ng-show="response">Exibindo {{response.results.length}} (pág. {{ response.currentPage }}) notícias entre {{ response.total | number }} totais</h4>
-
-      <!--<section class="hw-resultado-pesquisa" texto="nome" sum="1+2" sub-texto="Texto fixo" opcao="verdadeiro"></section>-->
-      <!--
-      <hw-resultado-pesquisa opcao="nenhum" texto="linkAngular"></hw-resultado-pesquisa>
-      <div data:hw-resultado-pesquisa texto="response.results.length" opcao="falso"></div>
-      -->
-      <hw-resultado-pesquisa items="response.results"></hw-resultado-pesquisa>
-      <hr>
-      <hw-resultado-pesquisa items="outrasNoticias"></hw-resultado-pesquisa>
-
-
-      
+      <a href="#/noticias">Pesquisar notícias</a>
     </section>
+    <section ng-view></section>
     <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
     <script type="text/javascript">
-      angular.module('helloWorld', []);
+      var hello = angular.module('helloWorld', [ 'ngRoute' ]);
+      // angular.module('helloWorld').config...
+      hello.config(function($routeProvider) {
+        $routeProvider.when(
+          '/noticias', {
+            templateUrl: 'main.html'
+          }
+        )
+      });
     </script>
     <script type="text/javascript" src="hwResultadoPesquisa.js"></script>
     <script type="text/javascript" src="IndexController.js"></script>
