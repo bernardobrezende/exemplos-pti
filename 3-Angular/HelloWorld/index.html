@@ -23,7 +23,7 @@
       <button ng-show="response.currentPage < response.pages" ng-click="proximaPagina()">Próximos</button>
 
       <!--<h4 ng-if="response">Exibindo {{::response.results.length}} notícias entre {{::response.total | number}} totais</h4>-->
-      <h4 ng-show="response">Exibindo {{response.results.length}} (pág. {{ response.currentPage }}) notícias entre {{::response.total | number}} totais</h4>
+      <h4 ng-show="response">Exibindo {{response.results.length}} (pág. {{ response.currentPage }}) notícias entre {{ response.total | number}} totais</h4>
 
       <ol>
         <!-- limitTo: 4 -->

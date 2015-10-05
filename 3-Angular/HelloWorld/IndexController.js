@@ -14,8 +14,13 @@ angular.module('helloWorld')
       $http.get(urlRequest + '&q='+ textoBusca +'&page='+pagina)
         .then(function(res) {
           console.log(res);
-          res.data.response.results[0].sectionName = null;
-          $scope.response = angular.copy(res.data.response);
+          if (res.data.response.results.length > 0) {
+            res.data.response.results[0].sectionName = null;
+            $scope.response = angular.copy(res.data.response);  
+          } else {
+            $scope.response.results = [];
+            $scope.response.total = 0;
+          }
         }
       );
     };
