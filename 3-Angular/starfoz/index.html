@@ -8,16 +8,20 @@
 
     <header>
       <h2>Olá, bem vindo ao {{ ::appInfo.name }}</h2>
+      <a href="#/login">Entrar</a>
     </header>
+
+    <section ng-view></section>
 
     <footer>
       <!-- v0.1 -->
-      v{{ ::appInfo.versionCode }} - {{ ::appInfo.versionName }}
+      v{{ ::appInfo.versionCode }} - {{ ::appInfo.versionName }} - Copyright {{ ::copyrightYear }}
     </footer>
 
     <script type="text/javascript" src="lib/angular/angular.min.js"></script>
     <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="src/controllers/RootController.js"></script>
+    <script type="text/javascript" src="src/controllers/LoginController.js"></script>
   </body>
 </html>

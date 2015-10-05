@@ -1,1 +1,5 @@
-login.html
+<form name="loginForm" novalidate>
+  Username: <input type="text" ng-model="user.username" required><br>
+  Pass: <input type="password" ng-model="user.pass" required><br>
+  <input type="submit" value="Entrar" ng-disabled="loginForm.$invalid" ng-click="login()">
+</form>

@@ -7,3 +7,12 @@ starFoz.constant('appInfo', {
   versionCode: '0.1',
   versionName: 'lime-goldfish'
 });
+
+starFoz.config(function($routeProvider) {
+
+  $routeProvider
+    .when('/login', {
+      templateUrl: 'views/login.html',
+      controller: 'LoginController'
+    });
+});
