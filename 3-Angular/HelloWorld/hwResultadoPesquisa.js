@@ -15,7 +15,8 @@ angular.module('helloWorld')
       // E = element
       // C = class
       restrict: 'CEA',
-      template: '<h1 class="bold" ng-show="texto">{{ texto }}, Aqui vão os resultados:</h1>',
+      //template: '<h1 class="bold" ng-show="texto">{{ texto }}, Aqui vão os resultados:</h1>',
+      templateUrl: 'resultadoPesquisa.tpl.html',
       link: function(scope, elem, attrs) {
         console.log('= %o', scope.texto);
         console.log('& %o', scope.sum());
