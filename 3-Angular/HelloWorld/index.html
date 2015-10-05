@@ -16,14 +16,17 @@
       var hello = angular.module('helloWorld', [ 'ngRoute' ]);
       // angular.module('helloWorld').config...
       hello.config(function($routeProvider) {
-        $routeProvider.when(
-          '/noticias', {
-            templateUrl: 'main.html'
-          }
-        )
+        $routeProvider
+          .when(
+            '/noticias', {
+              templateUrl: 'main.html',
+              controller: 'MainController'
+            }
+          )
       });
     </script>
     <script type="text/javascript" src="hwResultadoPesquisa.js"></script>
+    <script type="text/javascript" src="MainController.js"></script>
     <script type="text/javascript" src="IndexController.js"></script>
 
 
