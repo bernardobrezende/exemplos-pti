@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style type="text/css">
+    html,body{
+      overflow: hidden;
+      height:100%;
+      margin:0;
+    }
+
+    h1 {
+      display: none;
+    }
+
+    .texto-amarelo {
+      font-weight: bolder;
+      color: yellow;
+      display: inline;
+    }
+
+    .fundo-branco {
+      background-color: white;
+      transition: background-color 500ms linear;
+    }
+
+    .fundo-preto {
+      background-color: black;
+      transition: background-color 500ms linear;
+    }
+
+    @-webkit-keyframes pull{
+      0%{ height:100px; background:#666; }
+      50%{ height:120px; }
+      100%{ height:100px; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="texto-invisivel">Acende a Luz!!!</h1>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript">
+    window.addEventListener('devicelight', function(event) {
+      if (event.value < 20) {
+        $('body')
+          .addClass('fundo-preto')
+          .removeClass('fundo-branco');
+        $('h1').addClass('texto-amarelo');
+      } else {
+        $('body')
+          .addClass('fundo-branco')
+          .removeClass('fundo-preto');
+        $('h1').removeClass('texto-amarelo');
+      }
+    });
+  </script>
+</body>
+</html>

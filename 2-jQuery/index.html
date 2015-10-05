@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <title>Hello jQuery!</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+      .textos {
+        background-color: blue !important;
+        color: white;
+      }
+      .fundo-vermelho {
+        background-color: red !important;
+        color: white;
+      }
+      .fundo-rosa {
+        background-color: pink !important;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <article>
+        <img id="flor" src="https://static.pexels.com/photos/9459/pexels-photo.jpeg">
+      </article>
+    </section>
+    <section>
+      <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+    </section>
+    <div id="primeira" class="textos">
+      <span class="texto-menor">Maior 1!!!</span>
+      <span class="texto-maior">Maior!!!</span>
+      <span class="texto-menor">Menor 2!!!</span>
+      <span class="texto-gigante">Menor 2!!!</span>
+      <h1>H1 Azul!</h1>
+      <input type="text">
+      <input type="number">
+    </div>
+    <div class="fundo-vermelho texto-menor">
+      <span class="texto-menor">Olá!!!</span>
+      <span class="texto-menor">Tchau!!!</span>
+      <h1>H1 Vermelho!</h1>
+    </div>
+
+    <span class="texto-menor">Texto menor</span>
+    <script src="lib/jquery-2.1.4.min.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+    <script src="src/index.js"></script>
+    <script>
+      /*console.log('Antes do noConflict: %o', $.fn.jquery);
+      //var jq1113 = $.noConflict(true);
+      console.log('Depois do noConflict: %o', $.fn.jquery);
+      console.log('jQuery atual: %o', $.fn.jquery);
+      //console.log(jQuery('#texto'));
+      */
+      window.onload = function() {
+        console.log('carregou toda página!');
+      };
+
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('Carregou a DOM old school');
+      });
+
+      $(function() {
+        console.log('carregou a DOM!');
+
+        $('.fundo-vermelho').click(function() {
+          //alert('clicou!');
+        });
+
+        var fv = $('.fundo-vermelho');
+
+        fv.on('click mouseenter mouseleave', function() {
+          alert('clicou, aproximou ou saiu!');
+        });
+
+        $('#primeira').bind('click', function() {
+          fv.off('mouseenter mouseleave');
+        });
+
+        $('.fundo-vermelho').bind('click', function() {
+
+        });
+
+      });
+
+      /*
+      $(document).ready(function() {
+
+      });
+      */
+
+
+
+    </script>
+    
+  </body>
+</html>

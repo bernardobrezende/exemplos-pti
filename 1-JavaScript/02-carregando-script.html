@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script type="text/javascript" src="outraFn.js" async></script>
+    <script type="text/javascript">
+      /*var hello = function(obj) {
+
+      };*/
+
+      // isto é um comentário
+
+     /**
+      * Retorna uma string de hello world.
+      * @param {function,string} obj Objeto a ser impresso
+      */
+      function hello(obj) {
+        return "Hello " + (typeof obj == 'function' ? obj() : obj); 
+      }
+
+      hello('Texto');
+      hello(function() {
+        return "Texto vindo de uma function";
+      });
+      
+      var imprimirTudo = function() {
+        console.log(hello(outraFn));
+      };
+
+      if (typeof outraFn != 'undefined') {
+        outraFn();
+      }
+
+      //setTimeout(imprimirTudo, 2000);
+
+      var interval = setInterval(imprimirTudo, 2000);
+      console.log(interval);
+
+      setTimeout(function() {
+        clearInterval(interval);
+      }, 6000);
+
+    </script>
+
+
+
+
+
+  </body>
+</html>

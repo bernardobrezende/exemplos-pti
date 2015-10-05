@@ -1,0 +1,46 @@
+<html ng-app="helloWorld">
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://code.angularjs.org/1.4.7/angular-csp.css">
+  </head>
+  <body ng-controller="IndexController">
+    <section ng-init=" boasVindas = 'Olá' " ng-cloak>
+      <h2>{{::boasVindas}}, bem vindo ao {{ ::nomeApp }}</h2>
+      <input type="text" ng-model="nome">
+      <!--<h4>{{ nome }}</h4>-->
+      <h4 ng-bind="nome"></h4>
+      <h4>{{ ::nome }}</h4>
+
+      <a ng-hide="linkAngular" ng-href="{{::linkAngular}}" target="_blank">
+        <h3>Site AngularJS!</h3>
+      </a>
+
+      <input type="text" ng-model="busca" placeholder="Busca com resultados carregados" style="width: 200px"><br>
+      <input type="text" ng-model="buscaServidor" placeholder="Busca no servidor" style="width: 200px"><br>
+
+      <button ng-show="response.currentPage > 1" ng-click="paginaAnterior()">Anteriores</button>
+      <button ng-show="response.currentPage < response.pages" ng-click="proximaPagina()">Próximos</button>
+
+      <!--<h4 ng-if="response">Exibindo {{::response.results.length}} notícias entre {{::response.total | number}} totais</h4>-->
+      <h4 ng-show="response">Exibindo {{response.results.length}} (pág. {{ response.currentPage }}) notícias entre {{::response.total | number}} totais</h4>
+
+      <ol>
+        <!-- limitTo: 4 -->
+        <li ng-repeat="n in response.results | filter:{ webTitle: busca } | orderBy: '-webPublicationDate'">
+          <a ng-href="{{::n.webUrl}}" target="_blank">
+            <h4>{{ ::n.webTitle }}</h4>
+          </a>
+          <span>{{ n.sectionName || 'Nenhuma' }}</span><br>
+          <span>{{ ::n.webPublicationDate | date:'dd/MM/yyyy HH:mm:ss' }}</span>
+        </li>
+      </ol>
+
+    </section>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script type="text/javascript">
+      angular.module('helloWorld', []);
+    </script>
+    <script type="text/javascript" src="IndexController.js"></script>
+  </body>
+</html>

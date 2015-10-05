@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Exemplo JSONP</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <header>
+    <h1>Média de temperaturas de hoje em FOZ</h1>
+  </header>
+  <section>
+    <h3>Manhã: <span id="morn"></span>°C</h3>
+    <h3>Tarde: <span id="eve"></span>°C</h3>
+    <h3>Noite: <span id="night"></span>°C</h3>
+  </section>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript">
+    /*$.get('http://api.openweathermap.org/data/2.1/forecast/city?q=foz%20do%20igua%C3%A7u&mode=daily_compact')
+    .done(function(response) {
+      console.log(response);
+    }).fail(function(error) {
+      console.error(error);
+    });*/
+  </script>
+  <script type="text/javascript">
+    function retornoRequisicao(dados) {
+      console.log(dados);
+
+      var medias = dados.list.reduce(function(cnt, elem) {
+        console.log(cnt, elem);
+
+        return {
+          manha: cnt.manha + elem.morn,
+          tarde: cnt.tarde + elem.eve,
+          noite: cnt.noite + elem.night
+        };
+      }, { manha:0,tarde:0,noite:0 });
+
+      for (var prop in medias) {
+        medias[prop] /= dados.list.length;
+        // convertendo de K para Celsius e formatando com uma casa de precisão.
+        medias[prop] = Math.round((medias[prop]-273)*10)/10;
+      }
+
+      $('#morn').text(medias.manha);
+      $('#eve').text(medias.tarde);
+      $('#night').text(medias.noite);
+
+    }
+  </script>
+  <script type="text/javascript" src="http://api.openweathermap.org/data/2.1/forecast/city?q=foz do iguaçu&mode=daily_compact&callback=retornoRequisicao"></script>
+</body>
+</html>
