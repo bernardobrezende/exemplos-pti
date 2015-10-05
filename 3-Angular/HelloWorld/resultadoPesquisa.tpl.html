@@ -1,1 +1,10 @@
-<h3>está dentro do arquivo!</h3>
+<!-- | filter:{ webTitle: busca } | orderBy: '-webPublicationDate' -->
+<ol>
+  <li ng-repeat="n in items">
+    <a ng-href="{{::n.webUrl}}" target="_blank">
+      <h4>{{ ::n.webTitle }}</h4>
+    </a>
+    <span>{{ n.sectionName || 'Nenhuma' }}</span><br>
+    <span>{{ ::n.webPublicationDate | date:'dd/MM/yyyy HH:mm:ss' }}</span>
+  </li>
+</ol>

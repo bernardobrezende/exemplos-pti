@@ -26,21 +26,17 @@
       <!--<h4 ng-if="response">Exibindo {{::response.results.length}} notícias entre {{::response.total | number}} totais</h4>-->
       <h4 data:ng-show="response">Exibindo {{response.results.length}} (pág. {{ response.currentPage }}) notícias entre {{ response.total | number }} totais</h4>
 
-      <section class="hw-resultado-pesquisa" texto="nome" sum="1+2" sub-texto="Texto fixo" opcao="verdadeiro"></section>
-      <!--<hw-resultado-pesquisa opcao="nenhum" texto="linkAngular"></hw-resultado-pesquisa>
+      <!--<section class="hw-resultado-pesquisa" texto="nome" sum="1+2" sub-texto="Texto fixo" opcao="verdadeiro"></section>-->
+      <!--
+      <hw-resultado-pesquisa opcao="nenhum" texto="linkAngular"></hw-resultado-pesquisa>
       <div data:hw-resultado-pesquisa texto="response.results.length" opcao="falso"></div>
-    -->
+      -->
+      <hw-resultado-pesquisa items="response.results"></hw-resultado-pesquisa>
+      <hr>
+      <hw-resultado-pesquisa items="outrasNoticias"></hw-resultado-pesquisa>
 
-      <ol>
-        <!-- limitTo: 4 -->
-        <li ng-repeat="n in response.results | filter:{ webTitle: busca } | orderBy: '-webPublicationDate'">
-          <a ng-href="{{::n.webUrl}}" target="_blank">
-            <h4>{{ ::n.webTitle }}</h4>
-          </a>
-          <span>{{ n.sectionName || 'Nenhuma' }}</span><br>
-          <span>{{ ::n.webPublicationDate | date:'dd/MM/yyyy HH:mm:ss' }}</span>
-        </li>
-      </ol>
+
+      
     </section>
     <script type="text/javascript" src="lib/angular/angular.min.js"></script>
     <script type="text/javascript">

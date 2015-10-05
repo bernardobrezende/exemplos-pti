@@ -4,6 +4,12 @@ angular.module('helloWorld')
   .controller('IndexController', [ '$scope', '$http', '$timeout', function($scope, $http, $timeout) {
     $scope.nomeApp = 'Hello World Software';
     
+    $scope.outrasNoticias = [
+      { webTitle: 'Notícia Fixa 1', sectionName: 'Economics', webPublicationDate: new Date() },
+      { webTitle: 'Notícia Fixa 2', sectionName: 'Sports', webPublicationDate: new Date() },
+      { webTitle: 'Notícia Fixa 3', sectionName: 'Social', webPublicationDate: new Date() }
+    ];
+
     var pesquisar = function(pagina, textoBusca) {
 
       console.log('pagina: %o', pagina);
