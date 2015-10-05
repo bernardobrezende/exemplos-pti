@@ -24,7 +24,11 @@
       <button ng-show="response.currentPage < response.pages" ng-click="proximaPagina()">Próximos</button>
 
       <!--<h4 ng-if="response">Exibindo {{::response.results.length}} notícias entre {{::response.total | number}} totais</h4>-->
-      <h4 ng-show="response">Exibindo {{response.results.length}} (pág. {{ response.currentPage }}) notícias entre {{ response.total | number }} totais</h4>
+      <h4 data:ng-show="response">Exibindo {{response.results.length}} (pág. {{ response.currentPage }}) notícias entre {{ response.total | number }} totais</h4>
+
+      <section class="hw-resultado-pesquisa" opcao="verdadeiro"></section>
+      <hw-resultado-pesquisa opcao="nenhum"></hw-resultado-pesquisa>
+      <div data:hw-resultado-pesquisa opcao="falso"></div>
 
       <ol>
         <!-- limitTo: 4 -->
@@ -36,12 +40,20 @@
           <span>{{ ::n.webPublicationDate | date:'dd/MM/yyyy HH:mm:ss' }}</span>
         </li>
       </ol>
-
     </section>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script type="text/javascript">
       angular.module('helloWorld', []);
     </script>
+    <script type="text/javascript" src="hwResultadoPesquisa.js"></script>
     <script type="text/javascript" src="IndexController.js"></script>
+
+
+
+
+
+
+
+
   </body>
 </html>
