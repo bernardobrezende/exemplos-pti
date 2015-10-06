@@ -2,13 +2,8 @@
   Username: <input type="text" name="username" ng-model="user.username" required><br>
   Pass: <input type="password" name="pass" ng-model="user.pass" required><br>
   <input type="hidden" name="credentials" ng-model="user.credentials">
-  <input type="submit" value="Entrar" 
-    ng-disabled="loginForm.username.$invalid || loginForm.pass.$invalid || !loginForm.$dirty" 
-    ng-click="login()">
-
-    <br><span>username? {{ loginForm.username.$invalid }}</span>
-    <br><span>pass? {{ loginForm.pass.$invalid }}</span>
-    <br><span>dirty? {{ loginForm.$dirty }}</span>
+  <input type="submit" value="Entrar" ng-disabled="loginForm.username.$invalid || loginForm.pass.$invalid || !loginForm.$dirty" ng-click="login()">
+  <button ng-click="resetForm()">Limpar</button>
 
   <div ng-messages="loginForm.credentials.$error" ng-show="loginForm.credentials.$invalid">
     <span ng-message="unauthorized">Credenciais inválidas!</span>

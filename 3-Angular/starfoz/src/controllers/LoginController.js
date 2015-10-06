@@ -27,4 +27,10 @@ starFoz.controller('LoginController', function($scope, $location, customAuth) {
         }
       );
   };
+
+  $scope.resetForm = function() {
+    $scope.user.username = $scope.user.pass = '';
+    $scope.loginForm.$setPristine();
+  };
+
 });
