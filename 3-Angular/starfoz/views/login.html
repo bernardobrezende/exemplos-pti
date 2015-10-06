@@ -1,5 +1,16 @@
 <form name="loginForm" novalidate>
-  Username: <input type="text" ng-model="user.username" required><br>
-  Pass: <input type="password" ng-model="user.pass" required><br>
-  <input type="submit" value="Entrar" ng-disabled="loginForm.$invalid" ng-click="login()">
+  Username: <input type="text" name="username" ng-model="user.username" required><br>
+  Pass: <input type="password" name="pass" ng-model="user.pass" required><br>
+  <input type="hidden" name="credentials" ng-model="user.credentials">
+  <input type="submit" value="Entrar" 
+    ng-disabled="loginForm.username.$invalid || loginForm.pass.$invalid || !loginForm.$dirty" 
+    ng-click="login()">
+
+    <br><span>username? {{ loginForm.username.$invalid }}</span>
+    <br><span>pass? {{ loginForm.pass.$invalid }}</span>
+    <br><span>dirty? {{ loginForm.$dirty }}</span>
+
+  <div ng-messages="loginForm.credentials.$error" ng-show="loginForm.credentials.$invalid">
+    <span ng-message="unauthorized">Credenciais inválidas!</span>
+  </div>
 </form>

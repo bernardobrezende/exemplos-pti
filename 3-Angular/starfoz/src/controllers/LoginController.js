@@ -1,6 +1,7 @@
 'use strict';
 
 starFoz.controller('LoginController', function($scope, $location, customAuth) {
+
   $scope.login = function() {
 
 // customAuth.login($scope.user.username, $scope.user.pass, function(isLogged) {
@@ -16,6 +17,8 @@ starFoz.controller('LoginController', function($scope, $location, customAuth) {
           console.log('isLogged: %o', isLogged);
           if (isLogged === true) {
             $location.path('/');  
+          } else {
+            $scope.loginForm.credentials.$setValidity('unauthorized', false);
           }
         },
         // error
