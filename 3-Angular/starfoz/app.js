@@ -15,6 +15,9 @@ starFoz.constant('apiInfo', {
 starFoz.config(function($routeProvider) {
 
   $routeProvider
+    .when('/', {
+      templateUrl: 'views/main.html'
+    })
     .when('/login', {
       templateUrl: 'views/login.html',
       controller: 'LoginController'
@@ -22,5 +25,8 @@ starFoz.config(function($routeProvider) {
     .when('/users', {
       templateUrl: 'views/users.html',
       controller: 'UsersController'
+    })
+    .otherwise({
+      templateUrl: 'views/404.html'
     });
 });
