@@ -1,0 +1,10 @@
+{
+  "name": "starfoz-api",
+  "version": "0.1.0",
+  "description": "StartFoz app RESTful API",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "0.8.0"
+  }
+}
