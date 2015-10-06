@@ -1,6 +1,6 @@
 'use strict';
 
-starFoz.controller('RootController', function($scope, appInfo, customAuth) {
+starFoz.controller('RootController', function($scope, $location, appInfo, customAuth) {
   $scope.appInfo = appInfo;
   $scope.copyrightYear = new Date().getFullYear();
   
@@ -14,6 +14,7 @@ starFoz.controller('RootController', function($scope, appInfo, customAuth) {
   
   $scope.logout = function() {
     customAuth.logout();
+    $location.path('/');
   };
 
   // atualizar quando usuário loga/desloga em outra página
