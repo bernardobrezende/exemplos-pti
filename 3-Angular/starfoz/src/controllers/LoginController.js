@@ -1,6 +1,6 @@
 'use strict';
 
-starFoz.controller('LoginController', function($scope, $http, apiInfo) {
+starFoz.controller('LoginController', function($scope, $http, $location, apiInfo) {
   $scope.login = function() {
     console.log($scope.user);
 
@@ -26,6 +26,8 @@ starFoz.controller('LoginController', function($scope, $http, apiInfo) {
           angular.forEach(array, function(elem) {
             if (elem.userName === $scope.user.username && elem.pass === $scope.user.pass) {
               console.log('usuário existe na base!');
+              localStorage.setItem('session', angular.toJson(elem));
+              $location.path('/');
             }
           });
         },
