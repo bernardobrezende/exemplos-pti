@@ -6,14 +6,28 @@
   </head>
   <body ng-cloak ng-controller="RootController">
 
+    <!-- <sf-header></sf-header> -->
     <header>
       <h2>Olá, bem vindo ao {{ ::appInfo.name }}</h2>
       <a ng-hide="isLogged" href="#/login">Entrar</a>
       <a ng-show="isLogged" href="" ng-click="logout()">Sair</a>
     </header>
 
+    <!-- <sf-menu></sf-menu> -->
+    <aside ng-if="isLogged">
+      <ul>
+        <li ng-if=" currentUser.role === 'Owner' ">
+          <a href="#/users">Usuários</a>
+        </li>
+        <li ng-if=" currentUser.role === 'Contributor' ">
+          <a href="#/tips">Dicas</a>
+        </li>
+      </ul>
+    </aside>
+
     <section ng-view></section>
 
+    <!-- <sf-footer></sf-footer> -->
     <footer>
       <!-- v0.1 -->
       v{{ ::appInfo.versionCode }} - {{ ::appInfo.versionName }} - Copyright {{ ::copyrightYear }}

@@ -3,8 +3,14 @@
 starFoz.controller('RootController', function($scope, appInfo, customAuth) {
   $scope.appInfo = appInfo;
   $scope.copyrightYear = new Date().getFullYear();
+  
+  var updateUserData = function(isLogged) {
+    $scope.isLogged = isLogged;
+    $scope.currentUser = customAuth.getCurrentUser();
+  };
+
   // atualizar carregamento da página
-  $scope.isLogged = customAuth.isLogged;
+  updateUserData(customAuth.isLogged);
   
   $scope.logout = function() {
     customAuth.logout();
@@ -13,6 +19,6 @@ starFoz.controller('RootController', function($scope, appInfo, customAuth) {
   // atualizar quando usuário loga/desloga em outra página
   $scope.$on('logged:changed', function(event, data) {
     console.log('logged changed - %o', data);
-    $scope.isLogged = data;
+    updateUserData(data);
   });
 });

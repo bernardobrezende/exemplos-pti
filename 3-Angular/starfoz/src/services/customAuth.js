@@ -47,11 +47,15 @@ starFoz.service('customAuth', function($rootScope, $http, $q, apiInfo) {
     _setIsLogged(false);
   };
 
+  this.getCurrentUser = function() {
+    return angular.fromJson(localStorage.getItem('session'));
+  };
+
   var _setIsLogged = function(newVal) {
     this.isLogged = newVal;
     $rootScope.$broadcast('logged:changed', this.isLogged);
     // $scope.$emit();
   }.bind(this);
 
-  this.isLogged = angular.fromJson(localStorage.getItem('session')) !== null;
+  this.isLogged = this.getCurrentUser() !== null;
 });

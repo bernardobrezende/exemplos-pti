@@ -7,8 +7,8 @@ Instalar Node antes.
 
 ## Escopo da app
 
-1. Página principal de boas vindas e link de "Entrar"
-2. Página de login para Administrativo
+-1. Página principal de boas vindas e link de "Entrar"
+-2. Página de login para Administrativo
 3. Alterar idioma
 4. Administrativo:  
    CRUD Usuários (Nome, username, senha, confirmação, perfis: owner e contributor)  
