@@ -1,6 +1,6 @@
 'use strict';
 
-starFoz.service('customAuth', function($http, $q, apiInfo) {
+starFoz.service('customAuth', function($rootScope, $http, $q, apiInfo) {
   this.login = function(username, password) {
 
     /*
@@ -22,14 +22,16 @@ starFoz.service('customAuth', function($http, $q, apiInfo) {
         // success
         function(response) {
           var array = response.data;
+          var matchCredentials = false;
           angular.forEach(array, function(elem) {
             if (elem.userName === username && elem.pass === password) {
               localStorage.setItem('session', angular.toJson(elem));
               // if (angular.isFunction(cb)) cb(true);
-              deferred.resolve(true);
+              matchCredentials = true;
             }
           });
-          deferred.resolve(false);
+          _setIsLogged(matchCredentials);
+          deferred.resolve(matchCredentials);
         },
         // error
         function(response) {
@@ -39,4 +41,17 @@ starFoz.service('customAuth', function($http, $q, apiInfo) {
 
     return deferred.promise;
   };
+
+  this.logout = function() {
+    localStorage.removeItem('session');
+    _setIsLogged(false);
+  };
+
+  var _setIsLogged = function(newVal) {
+    this.isLogged = newVal;
+    $rootScope.$broadcast('logged:changed', this.isLogged);
+    // $scope.$emit();
+  }.bind(this);
+
+  this.isLogged = angular.fromJson(localStorage.getItem('session')) !== null;
 });
