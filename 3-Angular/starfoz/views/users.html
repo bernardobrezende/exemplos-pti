@@ -1,0 +1,22 @@
+<h3>Usuários</h3>
+
+<form name="newUserForm" novalidate>
+  Nome: <input type="text" name="name" ng-model="newUser.name" required>
+  <input type="submit" ng-click="register()">
+</form>
+
+<!-- <sf-user-list></sf-user-list> -->
+<table>
+  <thead>
+    <th>UserName</th>
+    <th>Name</th>
+    <th>Role</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="u in users">
+      <td>{{ ::u.userName }}</td>
+      <td>{{ ::u.name }}</td>
+      <td>{{ ::u.role }}</td>
+    </tr>
+  </tbody>
+</table>

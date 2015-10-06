@@ -18,5 +18,9 @@ starFoz.config(function($routeProvider) {
     .when('/login', {
       templateUrl: 'views/login.html',
       controller: 'LoginController'
+    })
+    .when('/users', {
+      templateUrl: 'views/users.html',
+      controller: 'UsersController'
     });
 });
