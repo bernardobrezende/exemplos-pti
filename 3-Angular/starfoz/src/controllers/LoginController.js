@@ -29,8 +29,20 @@ starFoz.controller('LoginController', function($scope, $location, customAuth) {
   };
 
   $scope.resetForm = function() {
-    $scope.user.username = $scope.user.pass = '';
+    // $scope.user = null;
+    // $scope.user = undefined;
+    // $scope.user = NaN;
+    // $scope.user = parseInt('Limpa form');
+    // $scope.user = {};
+    // $scope.user.username = $scope.user.pass = '';
+    delete $scope.user;
     $scope.loginForm.$setPristine();
   };
+
+
+
+
+
+
 
 });
