@@ -1,9 +1,9 @@
 ## Setup & Run (Local)
 
-`$ npm install`
-`$ node_modules/json-server/bin/index.js --watch db.json`
+1. `$ npm install`
+2. `$ node_modules/json-server/bin/index.js --watch db.json`
 
 ## Setup & Run (Global)
 
-`$ npm install -g json-server`
-`$ json-server --watch db.json`
+1. `$ npm install -g json-server`
+2. `$ json-server --watch db.json`
