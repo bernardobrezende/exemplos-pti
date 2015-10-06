@@ -1,6 +1,6 @@
 'use strict';
 
-starFoz.service('customAuth', function($http, $location, apiInfo) {
+starFoz.service('customAuth', function($http, $q, apiInfo) {
   this.login = function(username, password) {
 
     /*
@@ -15,25 +15,28 @@ starFoz.service('customAuth', function($http, $location, apiInfo) {
       });
     */
 
+    var deferred = $q.defer();
+
     $http.get(apiInfo.baseUrl + '/users')
       .then(
         // success
         function(response) {
-          console.log('success: %o', response);
-
           var array = response.data;
           angular.forEach(array, function(elem) {
             if (elem.userName === username && elem.pass === password) {
-              console.log('usuário existe na base!');
               localStorage.setItem('session', angular.toJson(elem));
-              $location.path('/');
+              // if (angular.isFunction(cb)) cb(true);
+              deferred.resolve(true);
             }
           });
+          deferred.resolve(false);
         },
         // error
         function(response) {
-          console.error('error: %o', response);
+          deferred.reject('erro na consulta de usuários: ' + response.status + ' ' + response.statusText);
         }
       );
+
+    return deferred.promise;
   };
 });
