@@ -8,6 +8,10 @@ starFoz.constant('appInfo', {
   versionName: 'lime-goldfish'
 });
 
+starFoz.constant('apiInfo', {
+  baseUrl: 'http://localhost:3000'
+});
+
 starFoz.config(function($routeProvider) {
 
   $routeProvider
