@@ -10,7 +10,7 @@
 
 <h3>Usuários</h3>
 
-<form name="newUserForm" novalidate>
+<form name="newUserForm" ng-submit="register()" novalidate>
   <p>
     Name: <input type="text" name="name" ng-model="newUser.name" required>
   </p>
@@ -31,7 +31,7 @@
   <p>
     Role: <select ng-model="newUser.role" ng-options="role for role in roles" required></select>
   </p>
-  <input type="submit" ng-click="register()" ng-disabled="newUserForm.$invalid || newUserForm.$pending">
+  <input type="submit" ng-disabled="newUserForm.$invalid || newUserForm.$pending">
 </form>
 
 <!-- <sf-user-list></sf-user-list> -->

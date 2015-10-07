@@ -16,6 +16,11 @@ starFoz.controller('UsersController', function($scope, apiInfo, users) {
 
   $scope.register = function() {
 
+    // Fazendo cópia de valores para deletar propriedade passConfirm
+    // e não enviá-la para o servidor
+    var newUser = angular.copy($scope.newUser);
+    delete newUser.passConfirm;
+
     users.register($scope.newUser).then(function(response) {
       $scope.users.push(response.data);
     });

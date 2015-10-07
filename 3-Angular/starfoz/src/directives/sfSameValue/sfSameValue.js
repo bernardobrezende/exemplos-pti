@@ -6,6 +6,7 @@ starFoz.directive('sfSameValue', function() {
     scope: {
       // valor-interno: '=valor-externo'
       otherValue: '=sfSameValue'
+      // otherValue: '='
     },
     link: function (scope, elem, attrs, ngModel) {
 
