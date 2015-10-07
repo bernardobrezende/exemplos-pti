@@ -5,15 +5,15 @@ starFoz.directive('sfUserConnectivity', function($window) {
     templateUrl: 'src/directives/sfUserConnectivity/user-connectivity.tpl.html',
     link: function (scope, elem) {
 
-      scope.online = navigator.onLine;
+      scope.online = $window.navigator.onLine;
 
-      $window.addEventListener("offline", function () {
+      $window.addEventListener('offline', function () {
         scope.$apply(function() {
           scope.online = false;
         });
       }, false);
 
-      $window.addEventListener("online", function () {
+      $window.addEventListener('online', function () {
         scope.$apply(function() {
           scope.online = true;
         });

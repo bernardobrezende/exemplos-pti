@@ -37,6 +37,10 @@ starFoz.config(function($routeProvider, $httpProvider) {
         $scope.bemVindo = 'Olá, bem vindo';
       }*/
     })
+    .when('/metrics', {
+      templateUrl: 'views/metrics.html',
+      controller: 'MetricsController'
+    })
     .otherwise({
       templateUrl: 'views/404.html'
     });

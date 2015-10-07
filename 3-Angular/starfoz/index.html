@@ -23,6 +23,9 @@
         <li ng-if=" currentUser.role === 'Owner' ">
           <a href="#/users">Usuários</a>
         </li>
+        <li ng-if=" currentUser.role === 'Owner' ">
+          <a href="#/metrics">Métricas</a>
+        </li>
         <li ng-if=" currentUser.role === 'Contributor' ">
           <a href="#/tips">Dicas</a>
         </li>
@@ -44,8 +47,10 @@
     <script type="text/javascript" src="src/controllers/RootController.js"></script>
     <script type="text/javascript" src="src/controllers/LoginController.js"></script>
     <script type="text/javascript" src="src/controllers/UsersController.js"></script>
+    <script type="text/javascript" src="src/controllers/MetricsController.js"></script>
     <script type="text/javascript" src="src/services/customAuth.js"></script>
     <script type="text/javascript" src="src/services/users.js"></script>
+    <script type="text/javascript" src="src/services/metrics.js"></script>
     <script type="text/javascript" src="src/directives/sfUsernameAvailable/sfUsernameAvailable.js"></script>
     <script type="text/javascript" src="src/directives/sfSameValue/sfSameValue.js"></script>
     <script type="text/javascript" src="src/directives/sfUserConnectivity/sfUserConnectivity.js"></script>
@@ -53,3 +58,11 @@
     <script type="text/javascript" src="src/interceptors/customInterceptor.js"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+

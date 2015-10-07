@@ -23,13 +23,7 @@
       "pass": "2",
       "name": "Primeiro Bolsista",
       "role": "Contributor"
-    },
-    {
-      "id": 3,
-      "userName": "harry.potter",
-      "pass": "3",
-      "name": "Harry Potter",
-      "role": "Contributor"
     }
-  ]
+  ],
+  "metrics": [ ]
 }
