@@ -1,8 +1,9 @@
 'use strict';
 
-starFoz.controller('RootController', function($scope, $location, appInfo, customAuth) {
+starFoz.controller('RootController', function($scope, $location, $filter, appInfo, customAuth) {
   $scope.appInfo = appInfo;
   $scope.copyrightYear = new Date().getFullYear();
+  $scope.bemVindo = $filter('reverse')('Olá, bem vindo ao ' + appInfo.name);
   
   var updateUserData = function(isLogged) {
     $scope.isLogged = isLogged;
