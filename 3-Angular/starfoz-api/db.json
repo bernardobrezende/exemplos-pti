@@ -1,11 +1,35 @@
 {
+  "roles": [
+    {
+      "id": 1,
+      "description": "Owner"
+    },
+    {
+      "id": 2,
+      "description": "Contributor"
+    }
+  ],
   "users": [
     {
       "id": 1,
       "userName": "owner",
-      "pass": "Owner@2015",
+      "pass": "1",
       "name": "System Owner",
       "role": "Owner"
+    },
+    {
+      "id": 2,
+      "userName": "bolsista",
+      "pass": "2",
+      "name": "Primeiro Bolsista",
+      "role": "Contributor"
+    },
+    {
+      "id": 3,
+      "userName": "harry.potter",
+      "pass": "3",
+      "name": "Harry Potter",
+      "role": "Contributor"
     }
   ]
 }

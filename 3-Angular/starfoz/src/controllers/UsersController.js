@@ -1,20 +1,30 @@
 'use strict';
 
-starFoz.controller('UsersController', function($scope, $http, apiInfo) {
-  $http.get(apiInfo.baseUrl + '/users')
-    .then(function(response) {
-      $scope.users = response.data;
+starFoz.controller('UsersController', function($scope, apiInfo, users) {
+  
+  // carregando inicialmente dados para tabela de usuários
+  users.all().then(function(response) {
+    $scope.users = response.data;
+  });
+
+  // carregando opções de roles
+  users.roles().then(function(response) {
+    $scope.roles = response.data.map(function(elem) {
+      return elem.description;
     });
+  });
 
   $scope.register = function() {
-    
-    console.log($scope.newUserForm);
-    console.log($scope.newUser);
 
-    $http.post(apiInfo.baseUrl + '/users', $scope.newUser)
-      .then(function(response) {
-        $scope.users.push(response.data);
-      });
+    users.register($scope.newUser).then(function(response) {
+      $scope.users.push(response.data);
+    });
 
+    resetForm();
+  };
+
+  var resetForm = function() {
+    delete $scope.newUser;
+    $scope.newUserForm.$setPristine();
   };
 });
