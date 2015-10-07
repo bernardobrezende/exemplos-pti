@@ -6,8 +6,8 @@ starFoz.factory('customInterceptor', function($q) {
   {
     requests: 0,
     responses: 0,
-    requestError: 0,
-    responseError: 0
+    requestsErrors: 0,
+    responsesErrors: 0
   };
 
   return {
