@@ -10,11 +10,18 @@ starFoz.controller('UsersController', function($scope, apiInfo, users, customAut
   $scope.isOwner = customAuth.getCurrentUser().role === roleTypes.OWNER;
 
   // carregando opções de roles
-  users.roles().then(function(response) {
-    $scope.roles = response.data.map(function(elem) {
-      return elem.description;
-    });
-  });
+  users.roles().then(
+    // success
+    function(response) {
+      $scope.roles = response.data.map(function(elem) {
+        return elem.description;
+      });
+    },
+    // error
+    function(error) {
+      $scope.feedbackMessage = 'Ops, erro ao buscar perfis.';
+    }
+  );
 
   $scope.register = function() {
 

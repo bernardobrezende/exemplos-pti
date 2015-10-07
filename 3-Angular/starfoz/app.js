@@ -17,7 +17,7 @@ starFoz.constant('roleTypes', {
   CONTRIBUTOR: 'Contributor'
 })
 
-starFoz.config(function($routeProvider) {
+starFoz.config(function($routeProvider, $httpProvider) {
 
   console.log('config');
 
@@ -31,11 +31,30 @@ starFoz.config(function($routeProvider) {
     })
     .when('/users', {
       templateUrl: 'views/users.html',
+      //template: '<h1>{{ ::bemVindo | reverse }}</h1>'
       controller: 'UsersController'
+      /*controller: function($scope) {
+        $scope.bemVindo = 'Olá, bem vindo';
+      }*/
     })
     .otherwise({
       templateUrl: 'views/404.html'
     });
+
+    // registrar interceptor
+    $httpProvider.interceptors.push('customInterceptor');
+    /* Implementação inline
+    $httpProvider.interceptors.push(
+      function($q) {
+        return {
+          'request': function(rq) {
+            console.log('segundo interceptor: %o', rq);
+            return rq;
+          }
+        }
+      }
+    );
+    */
 });
 
 starFoz.run(function($http, appInfo) {
