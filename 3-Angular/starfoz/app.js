@@ -19,6 +19,8 @@ starFoz.constant('roleTypes', {
 
 starFoz.config(function($routeProvider) {
 
+  console.log('config');
+
   $routeProvider
     .when('/', {
       templateUrl: 'views/main.html'
@@ -34,4 +36,9 @@ starFoz.config(function($routeProvider) {
     .otherwise({
       templateUrl: 'views/404.html'
     });
+});
+
+starFoz.run(function($http, appInfo) {
+  console.log('run');
+  $http.defaults.headers.common['X-StarFoz-Version'] = appInfo.versionCode;
 });
