@@ -8,7 +8,8 @@
 
     <!-- <sf-header></sf-header> -->
     <header>
-      <h2>Olá, bem vindo ao {{ ::appInfo.name }}</h2>
+      <h2>Olá, bem vindo ao {{ ::appInfo.name | reverse }}</h2>
+      <!-- "star foz" | reverse => "zof ratr" -->
       <a ng-hide="isLogged" href="#/login">Entrar</a>
       <a ng-show="isLogged" href="" ng-click="logout()">Sair</a>
     </header>
@@ -44,5 +45,6 @@
     <script type="text/javascript" src="src/services/users.js"></script>
     <script type="text/javascript" src="src/directives/sfUsernameAvailable/sfUsernameAvailable.js"></script>
     <script type="text/javascript" src="src/directives/sfSameValue/sfSameValue.js"></script>
+    <script type="text/javascript" src="src/filters/reverse.js"></script>
   </body>
 </html>
