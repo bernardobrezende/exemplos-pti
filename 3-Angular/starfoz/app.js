@@ -12,6 +12,11 @@ starFoz.constant('apiInfo', {
   baseUrl: 'http://localhost:3000'
 });
 
+starFoz.constant('roleTypes', {
+  OWNER: 'Owner',
+  CONTRIBUTOR: 'Contributor'
+})
+
 starFoz.config(function($routeProvider) {
 
   $routeProvider

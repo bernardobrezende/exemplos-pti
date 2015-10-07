@@ -32,6 +32,10 @@
     Role: <select ng-model="newUser.role" ng-options="role for role in roles" required></select>
   </p>
   <input type="submit" ng-disabled="newUserForm.$invalid || newUserForm.$pending">
+  <p>
+    <br><span>{{ ::feedbackMessage }}</span>
+  </p>
+
 </form>
 
 <!-- <sf-user-list></sf-user-list> -->
@@ -46,6 +50,17 @@
       <td>{{ ::u.userName }}</td>
       <td>{{ ::u.name }}</td>
       <td>{{ ::u.role }}</td>
+      <td><a href="" ng-show="isOwner" ng-click="exclude(u.id, $index)">Excluir</a></td>
     </tr>
   </tbody>
 </table>
+
+
+
+
+
+
+
+
+
+
