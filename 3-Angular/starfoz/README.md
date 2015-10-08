@@ -3,7 +3,8 @@
 Instalar Node antes.
 
 1. `$ npm install`
-2. `$ node server`
+2. `$ bower install`
+3. `$ node server`
 
 ## Escopo da app
 
