@@ -1,6 +1,6 @@
 'use strict';
 
-var starFoz = angular.module('starFoz', [ 'ngRoute', 'ngMessages', 'pascalprecht.translate' ]);
+var starFoz = angular.module('starFoz', [ 'ngRoute', 'ngMessages', 'ngCookies', 'ngSanitize', 'pascalprecht.translate' ]);
 
 starFoz.constant('appInfo', {
   name: 'StarFoz',

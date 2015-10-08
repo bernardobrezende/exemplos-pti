@@ -3,7 +3,7 @@
 var enTranslations = {
   WELCOME: 'Welcome to',
   ENGLISH: 'English',
-  SPANISH: 'Johann\'s Spanish',
+  SPANISH: 'Spanish',
   LOGIN: 'Login',
   LOGOUT: 'Logout'
 };

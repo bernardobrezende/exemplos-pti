@@ -3,7 +3,7 @@
 var esTranslations = {
   WELCOME: 'Bienvenido a',
   ENGLISH: 'Ingles',
-  SPANISH: 'Español de Johann',
+  SPANISH: 'Español',
   LOGIN: 'Acceso',
   LOGOUT: 'Desacceso'
 };
