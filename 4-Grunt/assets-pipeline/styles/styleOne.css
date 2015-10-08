@@ -1,0 +1,7 @@
+div#id.class {
+  background: black;
+}
+a > img {
+  padding: 0px;
+  margin: -130px 0 0 10;
+}
