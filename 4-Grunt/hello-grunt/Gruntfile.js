@@ -10,8 +10,16 @@ module.exports = function(grunt) {
       },
       // glob
       files: 'src/**/*.js'
+    },
+    plato: {
+      reportJs: {
+        files: {
+          'out': ['../../3-Angular/starfoz/src/**/*.js' ]
+        }
+      }
     }
   });
   // 2
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-plato');
 }

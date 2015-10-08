@@ -6,6 +6,7 @@
   "description": "",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.11.3"
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-plato": "^1.2.1"
   }
 }
