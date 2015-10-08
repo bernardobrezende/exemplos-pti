@@ -63,6 +63,8 @@ starFoz.config(function($routeProvider, $httpProvider, $translateProvider) {
   $translateProvider.translations('en', enTranslations);
   $translateProvider.translations('es', esTranslations);
   $translateProvider.preferredLanguage('es');
+  $translateProvider.useLocalStorage();
+  $translateProvider.useSanitizeValueStrategy('sanitize');
 
 });
 
