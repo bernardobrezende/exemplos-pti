@@ -25,7 +25,7 @@ Instalar Node antes.
 
 ## Links úteis
 
-1. http://ng-modules.org
+1. http://ngmodules.org
 2. http://yeoman.io/
 3. http://ng-newsletter.com
 4. http://angularjobs.com/
