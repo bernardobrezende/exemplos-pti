@@ -22,3 +22,16 @@ Instalar Node antes.
   Avaliar dicas  
   Mostrar aviso quando está offline  
   Página 404 e de erro  
+
+## Links úteis
+
+1. http://ng-modules.org
+2. http://yeoman.io/
+3. http://ng-newsletter.com
+4. http://angularjobs.com/
+5. https://www.youtube.com/watch?v=E8D6Qe4NUt8
+6. https://www.codeschool.com/courses/shaping-up-with-angular-js
+7. https://egghead.io/technologies/angularjs
+8. https://angular-translate.github.io/
+9. http://marcoslin.github.io/angularAMD/ (não testei)
+10. http://andreareginato.github.io/oauth-ng/ (não testei)
