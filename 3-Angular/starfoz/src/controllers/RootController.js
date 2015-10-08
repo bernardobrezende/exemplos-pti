@@ -1,6 +1,6 @@
 'use strict';
 
-starFoz.controller('RootController', function($scope, $location, $filter, appInfo, customAuth) {
+starFoz.controller('RootController', function($scope, $location, $filter, $translate, appInfo, customAuth) {
   $scope.appInfo = appInfo;
   $scope.copyrightYear = new Date().getFullYear();
   $scope.bemVindo = $filter('reverse')('Olá, bem vindo ao ' + appInfo.name);
@@ -17,6 +17,10 @@ starFoz.controller('RootController', function($scope, $location, $filter, appInf
     customAuth.logout();
     $location.path('/');
   };
+
+  $scope.changeLanguage = function(language) {
+    $translate.use(language);
+  }
 
   // atualizar quando usuário loga/desloga em outra página
   $scope.$on('logged:changed', function(event, data) {

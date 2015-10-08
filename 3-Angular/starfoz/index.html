@@ -14,8 +14,12 @@
       <!--<h2>Olá, bem vindo ao {{ ::appInfo.name | reverse }}</h2>-->
       <h2>{{ 'WELCOME' | translate }} {{ ::appInfo.name }}</h2>
       <!-- "star foz" | reverse => "zof ratr" -->
-      <a ng-hide="isLogged" href="#/login">Entrar</a>
-      <a ng-show="isLogged" href="" ng-click="logout()">Sair</a>
+      <a ng-hide="isLogged" href="#/login">{{ 'LOGIN' | translate }}</a>
+      <a ng-show="isLogged" href="" ng-click="logout()">{{ 'LOGOUT' | translate }}</a>
+      <div style="float: right; margin: -50 80;">
+        <a href="" ng-click="changeLanguage('en')">{{ 'ENGLISH' | translate }}</a>
+        <a href="" ng-click="changeLanguage('es')">{{ 'SPANISH' | translate }}</a>
+      </div>
     </header>
 
     <!-- <sf-menu></sf-menu> -->
