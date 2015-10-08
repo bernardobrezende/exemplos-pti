@@ -10,9 +10,9 @@
     <!-- <sf-header></sf-header> -->
     <header>
       <sf-user-connectivity></sf-user-connectivity>
-      <h2>{{ bemVindo }}</h2>
+      <!--<h2>{{ bemVindo }}</h2>-->
       <!--<h2>Olá, bem vindo ao {{ ::appInfo.name | reverse }}</h2>-->
-      <h2>{{ 'WELCOME' | translate }} {{ ::appInfo.name }}</h2>
+      <h2>{{ 'WELCOME' | translate:{ appName: appInfo.name } }}</h2>
       <!-- "star foz" | reverse => "zof ratr" -->
       <a ng-hide="isLogged" href="#/login">{{ 'LOGIN' | translate }}</a>
       <a ng-show="isLogged" href="" ng-click="logout()">{{ 'LOGOUT' | translate }}</a>
@@ -26,13 +26,13 @@
     <aside ng-if="isLogged">
       <ul>
         <li ng-if=" currentUser.role === 'Owner' ">
-          <a href="#/users">Usuários</a>
+          <a href="#/users">{{ 'USERS' | translate }}</a>
         </li>
         <li ng-if=" currentUser.role === 'Owner' ">
-          <a href="#/metrics">Métricas</a>
+          <a href="#/metrics">{{ 'METRICS' | translate }}</a>
         </li>
         <li ng-if=" currentUser.role === 'Contributor' ">
-          <a href="#/tips">Dicas</a>
+          <a href="#/tips">{{ 'TIPS' | translate }}</a>
         </li>
       </ul>
     </aside>

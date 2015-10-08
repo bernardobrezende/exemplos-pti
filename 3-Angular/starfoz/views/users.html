@@ -8,28 +8,28 @@
   }
 </style>
 
-<h3>Usuários</h3>
+<h3>{{ 'USERS' | translate }}</h3>
 
 <form name="newUserForm" ng-submit="register()" novalidate>
   <p>
-    Name: <input type="text" name="name" ng-model="newUser.name" required>
+    {{ 'NAME' | translate }}: <input type="text" name="name" ng-model="newUser.name" required>
   </p>
   <p>
-    Username: <input type="text" name="username" ng-model="newUser.userName" sf-username-available ng-model-options="{ debounce: 500 }" required>
+    {{ 'USERNAME' | translate }}: <input type="text" name="username" ng-model="newUser.userName" sf-username-available ng-model-options="{ debounce: 500 }" required>
     <span ng-show="newUserForm.username.$pending">Verificando...</span>
     <span ng-show="!newUserForm.username.$pending && newUser.userName.length > 0 && newUserForm.username.$error.userExists">Usuário já existe!</span>
   </p>
   <p>
-    Pass: <input type="password" name="pass" ng-model="newUser.pass" required>
+    {{ 'PASS' | translate }}: <input type="password" name="pass" ng-model="newUser.pass" required>
   </p>
   <p>
-    Pass confirmation: <input type="password" name="passConfirm" ng-model="newUser.passConfirm" sf-same-value="newUser.pass" required>
+    {{ 'PASS_CONFIRMATION' | translate }}: <input type="password" name="passConfirm" ng-model="newUser.passConfirm" sf-same-value="newUser.pass" required>
     <div ng-messages="newUserForm.passConfirm.$error">
       <div ng-message="sfSameValue">Senhas não coincidem</div>
     </div>
   </p>
   <p>
-    Role: <select ng-model="newUser.role" ng-options="role for role in roles" required></select>
+    {{ 'ROLE' | translate }}: <select ng-model="newUser.role" ng-options="role for role in roles" required></select>
   </p>
   <input type="submit" ng-disabled="newUserForm.$invalid || newUserForm.$pending">
   <p>
