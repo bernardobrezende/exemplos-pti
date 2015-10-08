@@ -12,9 +12,14 @@ module.exports = function(grunt) {
       files: 'src/**/*.js'
     },
     plato: {
-      reportJs: {
+      starFoz: {
         files: {
-          'out': ['../../3-Angular/starfoz/src/**/*.js' ]
+          'out/starfoz': ['../../3-Angular/starfoz/src/**/*.js' ]
+        }
+      },
+      helloGrunt: {
+        files: {
+          'out/helloGrunt': ['src/**/*.js' ]
         }
       }
     }
@@ -22,4 +27,12 @@ module.exports = function(grunt) {
   // 2
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-plato');
+  // 3
+  grunt.registerTask('analysis', ['jshint','plato:helloGrunt']);
+
+  grunt.registerTask('default', function() {
+    console.log(grunt.option('param'));
+    console.log('PATH:', process.env.PATH);
+    grunt.run([ 'analysis' ]); 
+  });
 }
