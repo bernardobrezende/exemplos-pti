@@ -1,0 +1,30 @@
+{
+  "name": "starfoz",
+  "version": "0.1.0",
+  "homepage": "https://github.com/bernardobrezende/exemplos-pti",
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "angular-messages": "~1.4.7",
+    "angular-cookies": "~1.4.7",
+    "angular-sanitize": "~1.4.7",
+    "angular-translate": "~2.8.1",
+    "angular-translate-storage-cookie": "~2.8.1",
+    "angular-translate-storage-local": "~2.8.1",
+    "jquery": "~2.1.4"
+  }
+}
