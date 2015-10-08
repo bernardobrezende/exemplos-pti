@@ -35,3 +35,4 @@ Instalar Node antes.
 8. https://angular-translate.github.io/
 9. http://marcoslin.github.io/angularAMD/ (não testei)
 10. http://andreareginato.github.io/oauth-ng/ (não testei)
+11. Webschool: https://www.youtube.com/channel/UCKdo1RaF8gzfhvkOdZv_ojg (Dica do Tiago)
