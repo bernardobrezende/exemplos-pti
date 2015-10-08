@@ -36,3 +36,6 @@ Instalar Node antes.
 9. http://marcoslin.github.io/angularAMD/ (não testei)
 10. http://andreareginato.github.io/oauth-ng/ (não testei)
 11. Webschool: https://www.youtube.com/channel/UCKdo1RaF8gzfhvkOdZv_ojg (Dica do Tiago)
+12. Bennadel (blog): http://www.bennadel.com/
+13. Todd Motto (blog): http://toddmotto.com/
+14. Pascal Pretch (blog): https://pascalprecht.github.io/ 
