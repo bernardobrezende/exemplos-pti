@@ -12,7 +12,7 @@
       <sf-user-connectivity></sf-user-connectivity>
       <h2>{{ bemVindo }}</h2>
       <!--<h2>Olá, bem vindo ao {{ ::appInfo.name | reverse }}</h2>-->
-      <h2>Olá, bem vindo ao {{ ::appInfo.name }}</h2>
+      <h2>{{ 'WELCOME' | translate }} {{ ::appInfo.name }}</h2>
       <!-- "star foz" | reverse => "zof ratr" -->
       <a ng-hide="isLogged" href="#/login">Entrar</a>
       <a ng-show="isLogged" href="" ng-click="logout()">Sair</a>
@@ -44,7 +44,10 @@
     <script type="text/javascript" src="lib/angular/angular.min.js"></script>
     <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
     <script type="text/javascript" src="lib/angular/angular-messages.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-translate.min.js"></script>
     <script type="text/javascript" src="lib/jquery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="src/i18n/en.js"></script>
+    <script type="text/javascript" src="src/i18n/es.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="src/controllers/RootController.js"></script>
     <script type="text/javascript" src="src/controllers/LoginController.js"></script>

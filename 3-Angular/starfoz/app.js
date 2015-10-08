@@ -1,6 +1,6 @@
 'use strict';
 
-var starFoz = angular.module('starFoz', [ 'ngRoute', 'ngMessages' ]);
+var starFoz = angular.module('starFoz', [ 'ngRoute', 'ngMessages', 'pascalprecht.translate' ]);
 
 starFoz.constant('appInfo', {
   name: 'StarFoz',
@@ -17,7 +17,7 @@ starFoz.constant('roleTypes', {
   CONTRIBUTOR: 'Contributor'
 })
 
-starFoz.config(function($routeProvider, $httpProvider) {
+starFoz.config(function($routeProvider, $httpProvider, $translateProvider) {
 
   console.log('config');
 
@@ -59,6 +59,11 @@ starFoz.config(function($routeProvider, $httpProvider) {
       }
     );
     */
+
+  $translateProvider.translations('en', enTranslations);
+  $translateProvider.translations('es', esTranslations);
+  $translateProvider.preferredLanguage('es');
+
 });
 
 starFoz.run(function($http, appInfo) {
