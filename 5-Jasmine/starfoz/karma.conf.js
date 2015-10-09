@@ -27,8 +27,7 @@ module.exports = function(config) {
       'lib/jquery/dist/jquery.min.js',
       'app.js',
       'src/**/*.js',
-      'specs/**/*.js',
-      'specs/controllers/LoginControllerSpec.js'
+      'tests/specs/**/*.js'
     ],
 
 
