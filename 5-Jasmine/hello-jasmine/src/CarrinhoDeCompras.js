@@ -8,6 +8,11 @@ CarrinhoDeCompras.prototype.adicionar = function(item) {
   this.itens.push(item);
 };
 
+/*
+CarrinhoDeCompras.prototype.adicionar = function(item) {
+  this.itens.push(item);
+};
+
 CarrinhoDeCompras.prototype.remover = function(sku) {
   var elemToRemove = this.itens.findBySku(sku)
   , index = this.itens.indexOf(elemToRemove);
@@ -36,5 +41,6 @@ CarrinhoDeCompras.prototype.sortearDesconto = function() {
   var sorte = coin < 0.4;
   return sorte;
 };
+*/
 
 // }
