@@ -61,6 +61,15 @@ module.exports = function(grunt) {
           { src: '<%= DEST_FOLDER %>/**', flatten: true }
         ]
       }
+    },
+    connect: {
+      server: {
+        options: {
+          port: 7777,
+          base: 'dist',
+          keepalive: true
+        }
+      }
     }
   });
 
@@ -74,6 +83,8 @@ module.exports = function(grunt) {
   */
 
   // 3 - Customizing default task pipeline
+  grunt.registerTask('serve', [ 'connect:server' ]);
+
   grunt.registerTask('default', [
     'jshint',
     'clean',
