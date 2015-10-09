@@ -20,6 +20,13 @@ CarrinhoDeCompras.prototype.remover = function(sku) {
   this.itens.removerNaPosicao(index);
 };
 
+CarrinhoDeCompras.prototype.sortearDesconto = function() {
+  var coin = Math.random();
+  console.log(coin);
+  var sorte = coin < 0.4;
+  return sorte;
+};
+
 /*
 CarrinhoDeCompras.prototype.adicionar = function(item) {
   this.itens.push(item);

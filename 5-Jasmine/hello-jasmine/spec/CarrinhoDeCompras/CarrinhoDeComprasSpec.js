@@ -93,6 +93,18 @@ describe('CarrinhoDeCompras', function() {
 
   });
 
+  describe('sortearDesconto', function() {
+
+    it('deve retornar verdadeiro com menos de 40%', function() {
+      spyOn(Math, 'random').and.returnValue(0.31);
+      carrinhoDeCompras = new CarrinhoDeCompras();
+      var sorte = carrinhoDeCompras.sortearDesconto();  
+      expect(sorte).toBeTruthy();
+      expect(Math.random).toHaveBeenCalled();
+    });
+    
+  });
+
 
 
 
