@@ -65,10 +65,17 @@ module.exports = function(grunt) {
   });
 
   // 2 - Loading external plugins from package.json
+  // carregar automaticamente:
   require('load-grunt-tasks')(grunt);
+  /* ou carregar manualmente:
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  */
 
   // 3 - Customizing default task pipeline
   grunt.registerTask('default', [
+    'jshint',
     'clean',
     'copy:html',
     'useminPrepare',
