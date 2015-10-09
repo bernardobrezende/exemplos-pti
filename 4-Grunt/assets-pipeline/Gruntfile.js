@@ -98,4 +98,24 @@ module.exports = function(grunt) {
     'usemin',
     'compress'
   ]);
+
+  grunt.registerTask('publish', function() {
+
+    var pipeline = [];
+
+    if (process.env.ENVIRONMENT === 'dev') {
+      grunt.log.writeln('dev!!');
+      pipeline.push('serve');
+    } else if (process.env.ENVIRONMENT === 'hlg') {
+      grunt.log.writeln('hlg!!');
+      pipeline.push('default');
+    } else {
+      var err = 'Variável de ambiente não está configurada!';
+      grunt.log.error(err);
+      throw new Error(err);
+    }
+
+    grunt.task.run(pipeline);
+  });
+
 };
