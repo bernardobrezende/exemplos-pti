@@ -8,6 +8,18 @@ CarrinhoDeCompras.prototype.adicionar = function(item) {
   this.itens.push(item);
 };
 
+CarrinhoDeCompras.prototype.remover = function(sku) {
+
+  if (typeof this.itens === 'undefined' || this.itens.length === 0) {
+    throw new Error('Carrinho não possui itens!');
+  }
+
+  var elemToRemove = this.itens.findBySku(sku)
+  , index = this.itens.indexOf(elemToRemove);
+
+  this.itens.removerNaPosicao(index);
+};
+
 /*
 CarrinhoDeCompras.prototype.adicionar = function(item) {
   this.itens.push(item);

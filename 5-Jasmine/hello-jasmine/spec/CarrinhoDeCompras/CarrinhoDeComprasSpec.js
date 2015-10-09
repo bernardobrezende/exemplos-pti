@@ -61,6 +61,38 @@ describe('CarrinhoDeCompras', function() {
 
   });
 
+  describe('remover', function() {
+    it('deve remover um item do inventário com um', function() {
+      var item = new Item({ sku: 'sku', descricao: 'descr', quantidade: 1, valorUnitario: 3.14 });
+      carrinhoDeCompras = new CarrinhoDeCompras([ item ]);
+      carrinhoDeCompras.remover('sku');
+      expect(carrinhoDeCompras.itens).toEqual([]);
+    });
+    it('deve remover um item de um inventários com dois', function() {
+      var item1 = new Item({ sku: 'sku', descricao: 'descr', quantidade: 1, valorUnitario: 3.14 });
+      var item2 = new Item({ sku: 'sku2', descricao: 'descr', quantidade: 1, valorUnitario: 3.14 });
+      carrinhoDeCompras = new CarrinhoDeCompras([ item1, item2 ]);
+      carrinhoDeCompras.remover('sku2');
+      expect(carrinhoDeCompras.itens).toEqual([item1]);
+    });
+
+    it('remover um item de um inventários sem itens lança erro', function() {
+      carrinhoDeCompras = new CarrinhoDeCompras();
+      expect(function() {
+        carrinhoDeCompras.remover('sku2');  
+      }).toThrowError('Carrinho não possui itens!');
+    });
+
+    it('remover um item de um inventário undefined deve lançar erro', function() {
+      carrinhoDeCompras = new CarrinhoDeCompras();
+      carrinhoDeCompras.itens = undefined;
+      expect(function() {
+        carrinhoDeCompras.remover('sku2');  
+      }).toThrowError('Carrinho não possui itens!');
+    });
+
+  });
+
 
 
 
