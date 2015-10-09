@@ -1,0 +1,20 @@
+{
+  "name": "starfoz",
+  "version": "0.1.0",
+  "main": "index.html",
+  "dependencies": {
+    "connect": "3.4.0",
+    "serve-static": "1.10.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.2",
+    "karma": "^0.13.10",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-jasmine": "^0.3.6"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "FPTI",
+  "license": "MIT"
+}

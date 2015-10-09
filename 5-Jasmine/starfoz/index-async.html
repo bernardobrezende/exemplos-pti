@@ -1,0 +1,77 @@
+<!doctype>
+<html>
+  <head>
+    <title>StarFoz</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="lib/angular/angular-csp.css">
+  </head>
+  <body ng-cloak ng-controller="RootController">
+
+    <!-- <sf-header></sf-header> -->
+    <header>
+      <sf-user-connectivity></sf-user-connectivity>
+      <h2>{{ bemVindo }}</h2>
+      <!--<h2>Olá, bem vindo ao {{ ::appInfo.name | reverse }}</h2>-->
+      <h2>Olá, bem vindo ao {{ ::appInfo.name }}</h2>
+      <!-- "star foz" | reverse => "zof ratr" -->
+      <a ng-hide="isLogged" href="#/login">Entrar</a>
+      <a ng-show="isLogged" href="" ng-click="logout()">Sair</a>
+    </header>
+
+    <!-- <sf-menu></sf-menu> -->
+    <aside ng-if="isLogged">
+      <ul>
+        <li ng-if=" currentUser.role === 'Owner' ">
+          <a href="#/users">Usuários</a>
+        </li>
+        <li ng-if=" currentUser.role === 'Owner' ">
+          <a href="#/metrics">Métricas</a>
+        </li>
+        <li ng-if=" currentUser.role === 'Contributor' ">
+          <a href="#/tips">Dicas</a>
+        </li>
+      </ul>
+    </aside>
+
+    <section ng-view></section>
+
+    <!-- <sf-footer></sf-footer> -->
+    <footer>
+      <!-- v0.1 -->
+      v{{ ::appInfo.versionCode }} - {{ ::appInfo.versionName }} - Copyright {{ ::copyrightYear }}
+    </footer>
+
+    <script type="text/javascript" src="lib/angular/angular-loader.min.js"></script>
+    <script type="text/javascript" src="lib/script.js/script.min.js"></script>
+    <script type="text/javascript">
+      // primeiro carrega dependências obrigatórias
+      $script([
+        'lib/angular/angular.min.js',
+        'lib/angular/angular-route.min.js',
+        'lib/angular/angular-messages.min.js',
+        'app.js',
+      ], function() {
+        // agora carrega dependências opcionais em paralelo
+        $script([
+          'src/controllers/RootController.js',
+          'src/controllers/LoginController.js',
+          'src/controllers/UsersController.js',
+          'src/controllers/MetricsController.js',
+          'src/services/customAuth.js',
+          'src/services/users.js',
+          'src/services/metrics.js',
+          'src/services/clientErrors.js',
+          'src/services/customExceptionHandler.js',
+          'src/directives/sfUsernameAvailable/sfUsernameAvailable.js',
+          'src/directives/sfSameValue/sfSameValue.js',
+          'src/directives/sfUserConnectivity/sfUserConnectivity.js',
+          'src/filters/reverse.js',
+          'src/interceptors/customInterceptor.js',
+          'lib/jquery/jquery-2.1.4.min.js'
+        ], function() {
+          angular.bootstrap(document, [ 'starFoz' ]);  
+        })
+      });
+    </script>
+  </body>
+</html>

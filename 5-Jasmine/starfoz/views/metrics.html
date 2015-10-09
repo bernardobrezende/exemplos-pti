@@ -1,0 +1,10 @@
+<h2>Métricas</h2>
+
+<h4>Requests: {{ ::metrics.requests }}</h4>
+<h4>Responses: {{ ::metrics.responses }}</h4>
+<h4>Requests Errors: {{ ::metrics.requestsErrors }}</h4>
+<h4>Responses Errors: {{ ::metrics.responsesErrors }}</h4>
+
+<button ng-click="sync()">Sincronizar</button>
+
+<div>{{ feedbackMessage }}</div>
