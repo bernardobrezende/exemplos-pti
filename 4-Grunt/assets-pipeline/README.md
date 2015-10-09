@@ -1,5 +1,5 @@
-# hello-grunt
-GruntJS basic asset pipeline
+# assets-pipeline
+GruntJS basic assets pipeline
 
 ## Setup & Run
 
